@@ -83,13 +83,22 @@ $query_builder = TRUE;
 //	'failover' => array(),
 //	'save_queries' => TRUE
 //);
+$services = json_decode($_ENV['VCAP_SERVICES'], true);
+$service = $services['cleardb'][0];
+$active_group = 'default';
+$active_record = TRUE;
+
+$active_group = 'default';
+$query_builder = TRUE;
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'ecod',
-	'dbdriver' => 'mysqli',
+	'hostname' => 'us-cdbr-iron-east-04.cleardb.net',
+	'port'=>'3306',
+	'username'=>'b04cfb2a57b00a',
+	'password' =>  '7ff77a70',
+	'database' => 'ad_559e532cc9410db',
+	'dbdriver' => 'mysql',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => TRUE,
