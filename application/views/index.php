@@ -95,24 +95,24 @@ function cs(){
                                     </a>
                                 </li>
                                 <li class="hover-ver2">
-                                    <a href="<?php echo base_url();?>"><i class="seoicon-mail-send"></i>
+                                    <a href="<?php echo base_url();?>"><i class="seoicon-pin-map"></i>
                                         Egypt
                                     </a>
                                 </li>
                                 <li class="hover-ver2">
-                                    <a href="#" onclick="cs();"><i class="seoicon-chat-comment"></i>
+                                    <a href="#" onclick="cs();"><i class="seoicon-pin-map"></i>
                                         Turkey
                                     </a>
                                 </li>
                                 <li class="menu-item-has-children hover-ver2">
                                     <a href="#" onclick="cs();">
-                                        <i class="seoicon-search"></i>
+                                        <i class="seoicon-pin-map"></i>
                                         South Africa
                                     </a>
                                 </li>
                                 <li class="hover-ver2">
-                                    <a href="#" onclick="cs();"><i class="seoicon-button"></i>
-                                        Saudia Arabia 
+                                    <a href="#" onclick="cs();"><i class="seoicon-pin-map"></i>
+                                        SAUDI ARABIA 
                                     </a>
                                 </li>
                                
@@ -443,7 +443,7 @@ function cs(){
 
                                         <div class="main-slider-btn-wrap" data-swiper-parallax="-300">
 
-                                            <a href="04_service_detail_seo.html"
+                                            <a href="<?php echo base_url()?>#Contact"
                                                class="btn btn-medium btn--dark btn-hover-shadow">
                                                 <span class="text">learn more</span>
                                                 <span class="semicircle"></span>
@@ -476,7 +476,7 @@ function cs(){
 
                                         <div class="main-slider-btn-wrap" data-swiper-parallax="-300">
 
-                                            <a href="05_service_details_localseo.html"
+                                            <a href="<?php echo base_url()?>#video"
                                                class="btn btn-medium btn--dark btn-hover-shadow">
                                                 <span class="text">learn more</span>
                                                 <span class="semicircle"></span>
@@ -520,7 +520,7 @@ function cs(){
 
                                         <div class="main-slider-btn-wrap" data-swiper-parallax="-300">
 
-                                            <a href="06_service_detail.html" class="btn btn-medium btn--dark btn-hover-shadow">
+                                            <a href="<?php echo base_url()?>#Contact" class="btn btn-medium btn--dark btn-hover-shadow">
                                                 <span class="text">GET STARTED</span>
                                                 <span class="semicircle"></span>
                                             </a>
@@ -561,7 +561,7 @@ function cs(){
 
                                         <div class="main-slider-btn-wrap" data-swiper-parallax="-300">
 
-                                            <a href="07_service_email_marketing.html"
+                                            <a href="<?php echo base_url()?>#video"
                                                class="btn btn-medium btn--dark btn-hover-shadow">
                                                 <span class="text">learn more</span>
                                                 <span class="semicircle"></span>
@@ -600,7 +600,7 @@ function cs(){
 
                                         <div class="main-slider-btn-wrap" data-swiper-parallax="-300">
 
-                                            <a href="08_service_ppc_management.html"
+                                            <a href="<?php echo base_url()?>#video"
                                                class="btn btn-medium btn--dark btn-hover-shadow">
                                                 <span class="text">learn more</span>
                                                 <span class="semicircle"></span>
@@ -835,7 +835,7 @@ function cs(){
                         </ul>
 
                         
-                        <a href="10_testimonials.html" class="btn btn-medium btn--primary btn-hover-shadow">
+                        <a href="<?php echo base_url()?>#Contact" class="btn btn-medium btn--primary btn-hover-shadow">
                             <span class="text">Contact us now!</span>
                             <span class="semicircle"></span>
                         </a>
@@ -859,7 +859,7 @@ function cs(){
 
 <!-- Our-video -->
 
-<div class="container-fluid">
+<div class="container-fluid" id="video">
     <div class="row">
         <div class="our-video js-equal-child">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding">
@@ -1516,23 +1516,34 @@ function cs(){
 
                             <div class="contact-form">
 
-                                <form class="seo-score-form input-inline">
+                                <form class="seo-score-form input-inline" action="<?php echo base_url();?>index.php/Home/addContact" method="post">
 
                                     <div class="row">
+                                        <div class="col-lg-12 no-padding col-md-12 col-xs-12 col-sm-12">
+                                            <input class="input-dark site" id="name" name="name" required="required" placeholder="Type in your Name">
+                                        </div>
 
                                         <div class="col-lg-8 no-padding col-md-12 col-xs-12 col-sm-12">
-                                            <input class="input-dark site" required="required" placeholder="Type in your Email">
+                                            <input class="input-dark site" id="email" name="email" required="required" placeholder="Type in your Email">
                                         </div>
                                         <div class="col-lg-4 no-padding col-md-12 col-xs-12 col-sm-12">
-                                            <input class="input-dark e-mail" required="required" placeholder="Your Phone number" type="phone">
+                                            <input class="input-dark e-mail" id="phone" name="phone" required="required" placeholder="Your Phone number" type="phone">
+                                        </div>
+                                        <div  class=" col-lg-12 no-padding col-md-12 col-xs-12 col-sm-12">
+                                           <select class="input-dark site" name="country" id="country">
+                                            <option value="EG">Choose Country</option>
+                                            <option value="UAE">UAE</option>
+                                            <option value="EG">EGYPT</option>
+                                            <option value="SA"> SAUDI ARABIA</option>
+                                           </select>
                                         </div>
 
                                     </div>
-
-                                    <button class="btn btn-medium btn--green btn-hover-shadow">
+                                    <input type="submit" class="btn btn-medium btn--green btn-hover-shadow" value="CALL ME">
+                                   <!--  <button type="submit" class="btn btn-medium btn--green btn-hover-shadow">
                                         <span class="text">CALL ME!</span>
                                         <span class="semicircle"></span>
-                                    </button>
+                                    </button> -->
 
                                 </form>
 

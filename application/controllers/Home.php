@@ -7,7 +7,21 @@ class Home extends CI_Controller {
         $this->load->view('index.php');
         
     }
+    public function addContact(){
+        $this->load->model('Contact_m');
+        $Data['name']=$this->input->post('name');
+        $Data['phone']=$this->input->post('phone');
+        $Data['email']=$this->input->post('email');
+        $Data['country']=$this->input->post('country');
+         date_default_timezone_set("America/Chicago");
+                    $tempdate = getdate();
+                    $strdate = $tempdate['year']."-".$tempdate['mon']."-".$tempdate['mday']." ".$tempdate['hours'].":".$tempdate['minutes'].":".$tempdate['seconds'];
+                    $Data['date_created'] = $strdate;
+        $this->Contact_m->save($Data);
+        print_r("Thank you!");
+        redirect(base_url());
 
+    }
 
     public function services(){
          $this->load->model('Data_m');
