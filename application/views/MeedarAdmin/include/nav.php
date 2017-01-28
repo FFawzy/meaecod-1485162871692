@@ -31,16 +31,16 @@
                             </a>
                         </li>
 
-                        <li <?php if ($pagename==="Data"){ echo'class="active"'; }else{ echo'class=""'; }?>>
-                             <a href="<?php echo base_url(); ?>index.php/Data"><i class="fa fa-home"></i>Front Page Data</a> 
+                        <li <?php if ($pagename==="Events"){ echo'class="active"'; }else{ echo'class=""'; }?>>
+                             <a href="<?php echo base_url(); ?>Events"><i class="fa fa-home"></i>Events</a> 
                          </li>
 
-                       <li <?php if ($pagename==="property"){ echo'class="active"'; }else{ echo'class=""'; }?>>
-                             <a href="<?php echo base_url(); ?>index.php/Properties"><i class="fa  fa-building-o "></i>Properties</a> 
+                       <li <?php if ($pagename==="Cases"){ echo'class="active"'; }else{ echo'class=""'; }?>>
+                             <a href="#" onclick="cs();"><i class="fa  fa-building-o "></i>Case Studies</a> 
                          </li>
 
-                        <li <?php if ($pagename==="users"){ echo'class="active"'; }else{ echo'class=""'; }?> >
-                             <a href="<?php echo base_url(); ?>index.php/User"><i class="fa fa-users"></i>Users </a> 
+                        <li <?php if ($pagename==="Contact"){ echo'class="active"'; }else{ echo'class=""'; }?> >
+                             <a href="<?php echo base_url(); ?>Contact"><i class="fa fa-users"></i>New Requests </a> 
                          </li>
 
                         

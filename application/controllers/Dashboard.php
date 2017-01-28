@@ -1,13 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
+     public function __construct() {
+        parent::__construct();        
+        $this->load->model('Contact_m');
+        $this->load->model("User_m");
+    }
     public function index()
     {
     	if($this->session->userdata('user_data') != null){
-            $this->load->model("Properties_m");
-            $this->load->model("User_m");
+            
+            
             $view['users']=$this->User_m->count();
-            $view['props']=$this->Properties_m->count();
+            $view['contact']=count($this->Contact_m->get(null,array('country'=>$this->session->userdata('user_data')['country'])));
             $pagename['pagename'] = "Dashboard";
         
             $this->load->view('MeedarAdmin/include/header.php');

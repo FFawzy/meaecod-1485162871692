@@ -10,12 +10,7 @@ class Login extends CI_Controller {
 
     public function index()
     {   
-//        if($this->session->userdata('user_data') != null){
-//            redirect('Admin/Dashboard', 'refresh');
-//        }
-//        else{
-            $this->load->view('MeedarAdmin/Login');
-       // }
+        redirect(base_url());
     }
 
     
@@ -49,7 +44,7 @@ class Login extends CI_Controller {
 
     public function logout(){
         $this->User_m->logout();
-       $this->load->view('MeedarAdmin/Login');
+       redirect(base_url());
     }
 
     

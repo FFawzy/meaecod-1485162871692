@@ -1,139 +1,52 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
+    function __construct() {
+        parent::__construct();
+       $this->load->model('Events_m');
+    }
+
     
    
     public function index(){
+        $this->load->view('include/header.php');
         $this->load->view('index.php');
+        $this->load->view('include/footer.php');
+        
+    }
+    public function events(){
+        $viewData['Data']=$this->Events_m->get();
+        $this->load->view('include/header.php');
+        $this->load->view('events.php',$viewData);
+        $this->load->view('include/footer.php');
+        
+    }
+     public function eventDetail($id){
+        $viewData['Data']=$this->Events_m->get(null,array('id'=>$id))[0];
+        $this->load->view('include/header.php');
+        $this->load->view('eventDetail.php',$viewData);
+        $this->load->view('include/footer.php');
         
     }
     public function addContact(){
+        print_r('hi');
         $this->load->model('Contact_m');
         $Data['name']=$this->input->post('name');
         $Data['phone']=$this->input->post('phone');
         $Data['email']=$this->input->post('email');
         $Data['country']=$this->input->post('country');
+        $Data['message']=$this->input->post('message');
          date_default_timezone_set("America/Chicago");
                     $tempdate = getdate();
                     $strdate = $tempdate['year']."-".$tempdate['mon']."-".$tempdate['mday']." ".$tempdate['hours'].":".$tempdate['minutes'].":".$tempdate['seconds'];
                     $Data['date_created'] = $strdate;
         $this->Contact_m->save($Data);
-        print_r("Thank you!");
+      echo "<script> alert('Thank you!');</script>";
         redirect(base_url());
 
     }
 
-    public function services(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-         $viewdata['email'] = $this->Data_m->get(null,array('sectionName'=>'email'));
-        $viewdata['phone'] = $this->Data_m->get(null,array('sectionName'=>'phone'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-        
-        $pagename['pagename'] = "services";
-        $this->load->view('Services.php',$viewdata);
-        $this->load->view('include/nav.php',$pagename); 
-
-    }
-
-    public function Aboutus(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-       $viewdata['who'] = $this->Data_m->get(null,array('sectionName'=>'who'));
-       $viewdata['mission'] = $this->Data_m->get(null,array('sectionName'=>'mission'));
-       $viewdata['vision'] = $this->Data_m->get(null,array('sectionName'=>'vision'));
-       $viewdata['ceo'] = $this->Data_m->get(null,array('sectionName'=>'ceo'));
-        $viewdata['email'] = $this->Data_m->get(null,array('sectionName'=>'email'));
-        $viewdata['phone'] = $this->Data_m->get(null,array('sectionName'=>'phone'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-
-        $pagename['pagename'] = "aboutus";
-        $this->load->view('include/nav.php',$pagename); 
-        $this->load->view('aboutus.php',$viewdata);
-        $this->load->view('include/footer.php'); 
-        
-
-    }
-
-    public function Project(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['properties'] = $this->Properties_m->get(null,array('active'=>'Active'));
-         $viewdata['email'] = $this->Data_m->get(null,array('sectionName'=>'email'));
-        $viewdata['phone'] = $this->Data_m->get(null,array('sectionName'=>'phone'));
-      
-        
-        $pagename['pagename'] = "project";
-        $this->load->view('include/nav.php',$pagename); 
-        $this->load->view('Project.php',$viewdata);
-        $this->load->view('include/footer.php'); 
-
-    }
-
-    public function Gallery(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-        
-        $pagename['pagename'] = "gallery";
-        $this->load->view('include/nav.php',$pagename); 
-        $this->load->view('Gallery.php',$viewdata);
-        $this->load->view('include/footer.php'); 
-
-    }
-
-    public function Listing(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-        
-        $pagename['pagename'] = "property";
-        $this->load->view('include/nav.php',$pagename); 
-        $this->load->view('Listing.php',$viewdata);
-        $this->load->view('include/footer.php'); 
-
-    }
-
-
-    public function Contact(){
-         $this->load->model('Data_m');
-        $this->load->model('Properties_m');
-        $viewdata['aboutus'] = $this->Data_m->get(null,array('sectionName'=>'AboutUs'));
-        $viewdata['contactus'] = $this->Data_m->get(null,array('sectionName'=>'ContactUs'));
-        $viewdata['location'] = $this->Data_m->get(null,array('sectionName'=>'Location'));
-        $viewdata['fb'] = $this->Data_m->get(null,array('sectionName'=>'FB'));
-        $viewdata['email'] = $this->Data_m->get(null,array('sectionName'=>'email'));
-        $viewdata['phone'] = $this->Data_m->get(null,array('sectionName'=>'phone'));
-        $viewdata['props'] = $this->Properties_m->get(null,array('active'=>'Active'));
-       
-        $pagename['pagename'] = "contact";
-        $this->load->view('include/nav.php',$pagename); 
-        $this->load->view('Contactus.php',$viewdata);
-        $this->load->view('include/footer.php'); 
-
-    }
+   
      public function CS(){
 
         $this->load->view('s.php');

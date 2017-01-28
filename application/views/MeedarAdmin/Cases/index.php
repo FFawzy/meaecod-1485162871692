@@ -5,8 +5,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Properties Content
-                        <small>Content Management panel for <a href="www.sooma.ae">Sooma Real Estate</a> Website</small>
+                        Administrators
+                        
                     </h1>
                     
                 </section>
@@ -14,36 +14,54 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                         <div class=" text-right"style="margin-bottom:10px;margin-right:5px;">    
-                    <a href="<?php echo base_url(); ?>index.php/Properties/add">
-                        <button type="button"  style="margin-right:5px;padding: 3px" class="btn btn-outline btn-primary"  style="margin-right:2px;">
-                            <div class="col-lg-6">
-                                <div class="col-xs-3">
-                                    <span  style="margin-left:32px;"> <i class="fa fa-plus fa-2x"></i> </span>
-                                    <div>Add Properties </div>
+                         <!-- <div class=" text-right"style="margin-bottom:10px;margin-right:5px;">    
+                        <a href="<?php echo base_url(); ?>index.php/User/add">
+                            <button type="button"  style="margin-right:5px;padding: 3px" class="btn btn-outline btn-primary"  style="margin-right:2px;">
+                                <div class="col-lg-6">
+                                    <div class="col-xs-3" style="display:none;">
+                                        <span  style="margin-left:14px;"> <i class="fa fa-plus fa-2x"></i> </span>
+                                        <div>Add Users </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
-                    </a>
-                </div>
+                            </button>
+                        </a>
+                     </div> -->
                         <!-- left column -->
                         <div class="col-md-6" style="width:100%;">
                             <!-- general form elements -->
                             <div class="box box-primary" style="overflow-x:scroll; ">
                                 <div class="box-header">
-                                    <h3 class="box-title">Properties</h3>
+                                    <h3 class="box-title">Cases</h3>
                                 </div><!-- /.box-header -->
+
                                 <div class="box-body">
                                     <table id="table"  class="table table-striped table-bordered table-hover" >
-                                    <thead>
-                                        <tr>
-                                            <th>Actions</th>
-                                            <?php
-                                                foreach($headers as $header){
-                                                    echo '<th>'.$header.'</th>';
-                                                }
-                                            ?>
-                                        </tr>
+                                   <thead>
+                                      <tr>
+                                        <th>Actions</th>
+                                        <?php
+                                        if(isset($Data[0])){
+                                                                $vararray = get_object_vars($Data[0]);
+                                                                foreach($vararray as $key=>$value){
+                                                                  if( $key==="owner_id" ||$key==="id" || $key==="password" || $key==="agency_name"){
+                                                                    continue;
+                                                                  }else{
+                                                                    $keyarr = explode('_', $key);
+                                                                    $header = '';
+                                                                    foreach ($keyarr as $elem){
+                                                                     
+                                                                   
+                                                                        $header .= ucfirst($elem).' ';
+                                                                      
+                                                                    }
+                                                                     
+                                                                  
+                                                                    echo '<th style="font-size:15px;">'.$header.'</th>';
+                                                                  }
+                                                                  
+                                                                }
+                                                            }?>
+                                      </tr>
                                     </thead>
 
                                     <tbody>
@@ -57,7 +75,7 @@
                                                 $vararray = get_object_vars($data);
                                                 foreach($vararray as $key=>$value){
                                                     if($key == 'password')echo '<td>****</td>';
-                                                    else if($key != 'id'){
+                                                    else if($key != 'id' ){
                                                         echo '<td>'.$value.'</td>';
                                                     }
                                                 }

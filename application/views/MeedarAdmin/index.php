@@ -8,7 +8,7 @@
                 <section class="content-header">
                     <h1>
                         Dashboard
-                        <small>Content Management panel for <a href="www.sooma.ae">Sooma Real Estate</a> Website</small>
+                        
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div style="color:white;font-size: 60px;font-family: sans-serif;margin-top: -4%;"><?php echo $users?></div>
-                                            <div style="font-family: sans-serif; font-size: x-large; margin-top: -4%;"><a href="<?php echo base_url(); ?>index.php/User"style="decorations:none; color:white;" >Users</a></div>
+                                            <div style="font-family: sans-serif; font-size: x-large; margin-top: -4%;"><a href="#"style="decorations:none; color:white;" >Users</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +46,8 @@
                                             <i style="color:white;" class="fa  fa-building-o fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div style="color:white;font-size: 60px;font-family: sans-serif;margin-top: -4%;"><?php echo $props?></div>
-                                            <div style="font-family: sans-serif; font-size: x-large; margin-top: -4%;"><a href="<?php echo base_url(); ?>index.php/Properties" style="decorations:none; color:white;">Properties</a></div>
+                                            <div style="color:white;font-size: 60px;font-family: sans-serif;margin-top: -4%;"><?php echo $contact?></div>
+                                            <div style="font-family: sans-serif; font-size: x-large; margin-top: -4%;"><a href="#" style="decorations:none; color:white;">New Requests</a></div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 <?php
-class Contact_m extends CI_Model{
+class Cases_m extends CI_Model{
     function __construct() {
         parent::__construct();
        
@@ -38,24 +38,24 @@ class Contact_m extends CI_Model{
         }
         //$this -> db -> order_by('membership_type','asc');
     
-        $this -> db -> from('contact');
+        $this -> db -> from('cases');
         //print_r($this -> db);
         return $this -> db -> get() -> result();
     }
     function save($data) {
        
-        return $this -> db -> insert('contact', $data);
+        return $this -> db -> insert('cases', $data);
     }
     
     function update($data, $condition) {
         
      
         
-        return $this -> db -> update('contact', $data, $condition);
+        return $this -> db -> update('cases', $data, $condition);
     
     }
       function count(){
-        $this -> db -> from('contact');
+        $this -> db -> from('cases');
         $items = $this -> db -> get() -> result();
         return count($items);
     }
@@ -65,7 +65,7 @@ class Contact_m extends CI_Model{
         
       
         
-        $this -> db -> where($arr) -> delete('contact');
+        $this -> db -> where($arr) -> delete('cases');
     }
     
     

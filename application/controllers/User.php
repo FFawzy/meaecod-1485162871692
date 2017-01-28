@@ -13,7 +13,7 @@ class User extends CI_Controller {
 
         
                 $viewdata['Data'] = $this->User_m->get();
-                $viewdata['headers'] = array('Username','Password', 'Email','Date Created','Date Modified');
+                $viewdata['headers'] = array('Username','Password','Country','Type','Date Created','Date Modified');
                 $viewdata['controller'] = 'User'; 
                 
                 $pagename['pagename'] = "users";
@@ -43,7 +43,9 @@ class User extends CI_Controller {
                     else{
                         $data['username'] = $this->input->post('username');
                         $data['password'] = $this->User_m->hash($this->input->post('password'));
-                        $data['email'] = $this->input->post('email');
+                         $data['country'] = $this->input->post('country');
+                          $data['type'] = $this->input->post('type');
+                        
                        
                         $this->User_m->save($data);
                         echo "<script> alert('user added');</script>";

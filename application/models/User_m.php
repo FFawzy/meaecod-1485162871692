@@ -15,11 +15,7 @@ class User_m extends CI_Model{
             'label'=> 'Username', 
             'rules'=>'trim|required|is_unique[user.username]'
            ),
-        'email'=> array(
-            'field' =>'email', 
-            'label'=> 'Email', 
-            'rules'=>'trim|required|valid_email|is_unique[user.email]'
-           ),
+       
         'password'=> array(
             'field' =>'password', 
             'label'=> 'Password', 
@@ -39,11 +35,7 @@ class User_m extends CI_Model{
             'label'=> 'Last Name', 
             'rules'=>'trim|required|xss_clean'
            ),
-        'email'=> array(
-            'field' =>'email', 
-            'label'=> 'Email', 
-            'rules'=>'trim|required|valid_email|calback__unique_email|xss_clean'
-           ),
+       
         'password'=> array(
             'field' =>'password', 
             'label'=> 'Password', 
@@ -51,12 +43,8 @@ class User_m extends CI_Model{
         'password_confirm'=> array(
             'field' =>'password_confirm', 
             'label'=> 'Password Confirm', 
-            'rules'=>'trim|matches[password]'),
-        'role'=> array(
-            'field' =>'role', 
-            'label'=> 'Admin Level', 
-            'rules'=>'trim|required|xss_clean'
-           ),
+            'rules'=>'trim|matches[password]')
+        
     );
     
     protected $_timestamps = FALSE;
@@ -67,7 +55,8 @@ class User_m extends CI_Model{
             //login user in
             $data = array(
                 'username' => $admin[0]->username,
-                'email' => $admin[0]->email,
+                'country' => $admin[0]->country,
+                'type' => $admin[0]->type,
                 'loggedin' => TRUE
             );
             

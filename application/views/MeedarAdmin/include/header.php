@@ -35,6 +35,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <script type="text/javascript">
+        function cs(){
+            alert('Coming soon!');
+        }
+        </script>
 
        <Style>
 
@@ -59,7 +64,7 @@
         <header class="header">
             <a href="<?php echo base_url(); ?>index.php" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <img  src="<?php echo base_url();?>Assets/assets/Logo2W.png" alt="Sooma" style="width: 30%; margin-left:30%;" class="icon img-responsive b-logo">
+                MEA ECOD
             </a>
             <!-- Header Navbar: style can be found in header.less -->
 

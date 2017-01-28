@@ -14,18 +14,18 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                         <div class=" text-right"style="margin-bottom:10px;margin-right:5px;">    
-                    <a href="<?php echo base_url(); ?>index.php/User/add">
-                        <button type="button"  style="margin-right:5px;padding: 3px" class="btn btn-outline btn-primary"  style="margin-right:2px;">
-                            <div class="col-lg-6">
-                                <div class="col-xs-3">
-                                    <span  style="margin-left:14px;"> <i class="fa fa-plus fa-2x"></i> </span>
-                                    <div>Add Users </div>
+                         <!-- <div class=" text-right"style="margin-bottom:10px;margin-right:5px;">    
+                        <a href="<?php echo base_url(); ?>index.php/User/add">
+                            <button type="button"  style="margin-right:5px;padding: 3px" class="btn btn-outline btn-primary"  style="margin-right:2px;">
+                                <div class="col-lg-6">
+                                    <div class="col-xs-3" style="display:none;">
+                                        <span  style="margin-left:14px;"> <i class="fa fa-plus fa-2x"></i> </span>
+                                        <div>Add Users </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
-                    </a>
-                </div>
+                            </button>
+                        </a>
+                     </div> -->
                         <!-- left column -->
                         <div class="col-md-6" style="width:100%;">
                             <!-- general form elements -->
@@ -36,15 +36,32 @@
 
                                 <div class="box-body">
                                     <table id="table"  class="table table-striped table-bordered table-hover" >
-                                    <thead>
-                                        <tr>
-                                            <th>Actions</th>
-                                            <?php
-                                                foreach($headers as $header){
-                                                    echo '<th>'.$header.'</th>';
-                                                }
-                                            ?>
-                                        </tr>
+                                   <thead>
+                                      <tr>
+                                        <th>Actions</th>
+                                        <?php
+                                        if(isset($Data[0])){
+                                                                $vararray = get_object_vars($Data[0]);
+                                                                foreach($vararray as $key=>$value){
+                                                                  if( $key==="owner_id" ||$key==="id" || $key==="password" || $key==="agency_name"){
+                                                                    continue;
+                                                                  }else{
+                                                                    $keyarr = explode('_', $key);
+                                                                    $header = '';
+                                                                    foreach ($keyarr as $elem){
+                                                                     
+                                                                   
+                                                                        $header .= ucfirst($elem).' ';
+                                                                      
+                                                                    }
+                                                                     
+                                                                  
+                                                                    echo '<th style="font-size:15px;">'.$header.'</th>';
+                                                                  }
+                                                                  
+                                                                }
+                                                            }?>
+                                      </tr>
                                     </thead>
 
                                     <tbody>
@@ -53,7 +70,7 @@
                                             foreach($Data as $data){
                                                 echo '<tr>';
                                                 $edit = '<button type="button" class="btn btn-default btn-circle" style="margin-right:3px;"  name="'.$data->id.'e"><a href="'.$link.'edit/'.$data->id.'"><i class="fa fa-edit"></i></a></button>';
-                                                $delete = '<button type="button" class="btn btn-default btn-circle"  name="'.$data->id.'d"><a href="'.$link.'delete/'.$data->id.'"><i class="fa fa-trash-o"></i></a></button>';
+                                                $delete = '<a href="'.$link.'delete/'.$data->id.'"><i class="fa fa-trash-o"></i></a>';
                                                 echo '<td>'.$delete.'</td>';
                                                 $vararray = get_object_vars($data);
                                                 foreach($vararray as $key=>$value){
