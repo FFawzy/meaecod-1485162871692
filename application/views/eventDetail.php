@@ -79,9 +79,10 @@
 
 							<div class="heading">
 								<h4 class="h1 heading-title"><?php echo $Data->name;?></h4>
-								<p><?php echo $Data->description;?>
-								</p>
+								<!-- <p><?php echo $Data->description;?>
+								</p> -->
 							</div>
+
 
 							<div class="likes-block">
 
@@ -97,12 +98,57 @@
 							</div>
 							</div>
 						</div>
+
 				</div>
+				
+
 			</div>
+
 		</div>
 	</div>
 </div>
+<div class="container-fluid">
+	<div class="row bg-border-color medium-padding120">
+		<div class="container">
+			<div class="row">
+				<div class="product-description-ver2">
 
+
+					<div class="col-lg-12 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
+						<div class="product-description-ver2-content">
+							
+
+							<div >
+								
+								<p><?php echo $Data->description;?>
+									
+								</p>
+							</div>
+
+
+							<div class="likes-block">
+
+								<a href="<?php echo base_url();?>#Contact" class="btn btn-medium btn--dark btn-hover-shadow">
+									<span class="text">Contact us for reservation</span>
+									<span class="semicircle"></span>
+								</a>
+
+								<!-- <a href="#" class="likes">
+									<i class="seoicon-shape-heart"></i>
+									<span class="count-likes">54</span>
+								</a> -->
+							</div>
+							</div>
+						</div>
+
+				</div>
+				
+
+			</div>
+			
+		</div>
+	</div>
+</div>
 <!-- End Product description -->
 
 
