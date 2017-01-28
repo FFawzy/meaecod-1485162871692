@@ -1,5 +1,5 @@
             <!-- Right side column. Contains the navbar and content of the page -->
-            
+            <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
             <?php echo validation_errors(); ?>
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
@@ -32,7 +32,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <input class="form-control" id="description" name="description" type="text" placeholder="description of the event">
+                                           
+                                            <textarea class="form-control"  id="description" name="description"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>image</label>
@@ -83,3 +84,6 @@
                     </div>   <!-- /.row -->
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+             <script>
+            CKEDITOR.replace( 'description' );
+        </script>
