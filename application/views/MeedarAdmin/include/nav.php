@@ -42,6 +42,10 @@
                         <li <?php if ($pagename==="Contact"){ echo'class="active"'; }else{ echo'class=""'; }?> >
                              <a href="<?php echo base_url(); ?>Contact"><i class="fa fa-users"></i>New Requests </a> 
                          </li>
+                         <?php if ($this->session->userdata('user_data')['type']==="admin"){ ?>
+                          <li >
+                             <a href="<?php echo base_url(); ?>User"><i class="fa fa-users"></i>Users </a> 
+                         </li><?php }?>
 
                         
                     </ul>
