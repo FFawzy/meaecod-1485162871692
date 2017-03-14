@@ -105,7 +105,7 @@ function cs(){
                                     </a>
                                 </li>
                                 <li class="menu-item-has-children hover-ver2">
-                                    <a href="#" onclick="cs();">
+                                    <a href="http://zaecod.mybluemix.net/" >
                                         <i class="seoicon-pin-map"></i>
                                         South Africa
                                     </a>
